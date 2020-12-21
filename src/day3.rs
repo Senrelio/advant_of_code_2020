@@ -1,5 +1,6 @@
 use std::io::prelude::*;
 
+#[allow(dead_code)]
 fn solution(arrow: (u32, u32)) -> u32 {
     let input = "./input_day3";
     let file = std::fs::File::open(&input).unwrap();
