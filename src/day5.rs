@@ -1,5 +1,5 @@
 use std::io::prelude::*;
-pub fn verify(seq: Vec<char>) -> u32 {
+pub fn extract(seq: Vec<char>) -> u32 {
     let row_seq = &seq[..7];
     let col_seq = &seq[7..];
     let row_num = row_seq
@@ -41,7 +41,7 @@ fn run1() {
     let max = std::io::BufReader::new(input)
         .lines()
         .into_iter()
-        .map(|l| verify(l.unwrap().chars().collect()))
+        .map(|l| extract(l.unwrap().chars().collect()))
         .max()
         .unwrap();
     println!("{}", max);
@@ -53,7 +53,7 @@ fn run2() {
     let mut present: Vec<u32> = std::io::BufReader::new(input)
         .lines()
         .into_iter()
-        .map(|l| verify(l.unwrap().chars().collect()))
+        .map(|l| extract(l.unwrap().chars().collect()))
         .collect();
     present.sort_unstable();
     let bingo = present
